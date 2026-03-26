@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E5C76B;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  /* Prevent content from touching screen edges on small devices */
+  min-width: 320px;
+}
+
+/* Prevent images/iframes from overflowing */
+img, iframe, video {
+  max-width: 100%;
+}
+
+/* Smooth tap highlight removal on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Gold gradient text utility ── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A84C 0%, #E5C76B 50%, #A8872E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section divider ── */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C9A84C, #E5C76B);
+  border-radius: 2px;
+}
+
+/* ── Gold button ── */
+.btn-gold {
+  @apply inline-flex items-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-sm tracking-widest uppercase transition-all duration-300;
+  background: linear-gradient(135deg, #C9A84C, #E5C76B);
+  color: #0d0d0d;
+  box-shadow: 0 4px 24px rgba(201, 168, 76, 0.3);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.5);
+}
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* ── Ghost button ── */
+.btn-ghost {
+  @apply inline-flex items-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-sm tracking-widest uppercase transition-all duration-300 border;
+  border-color: #C9A84C;
+  color: #C9A84C;
+}
+.btn-ghost:hover {
+  background: rgba(201, 168, 76, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Card hover glow ── */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(201, 168, 76, 0.15);
+}
+
+/* ── Noise texture overlay for sections ── */
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
