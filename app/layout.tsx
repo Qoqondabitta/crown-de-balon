@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     description: "Premium Cuts. Clean Style. Confidence.",
     type: "website",
   },
+  themeColor: "#0d0d0d",
 };
 
 export default function RootLayout({
